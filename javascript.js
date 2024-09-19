@@ -5,7 +5,7 @@ const title = document.querySelector('#title');
 const author = document.querySelector('#author');
 const pages = document.querySelector('#pages');
 const readstatus = document.querySelector('#readstatus');
-
+let counter = 0;
 
 function Book(name, author, pages, readstatus) {
     this.name = name;
@@ -54,6 +54,13 @@ submit.addEventListener("submit", function(event) {
     pages.value = "";
     readstatus.checked = false;
 })
+
+container.addEventListener('click', function(e) {
+    if (e.target.tagName === 'BUTTON') {
+        let card = e.target.closest('.card');
+        container.removeChild(card);
+    }
+});
 
 
 
