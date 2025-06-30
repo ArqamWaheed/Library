@@ -1,14 +1,13 @@
 const changeLibrary = (function() {
-    _myLibrary = [];
+    const _myLibrary = [];
 
     // Cache dom
-    $bookName = document.querySelector("#title");
-    $authorName = document.querySelector("#author");
-    $pages = document.querySelector("#pages");
-    $readStatus = document.querySelector("#readstatus");
-    $submitButton = document.querySelector("#submit");
-    $cardContainer = document.querySelector(".main");
-    $form = document.querySelector(".form");
+    const $bookName = document.querySelector("#title");
+    const $authorName = document.querySelector("#author");
+    const $pages = document.querySelector("#pages");
+    const $readStatus = document.querySelector("#readstatus");
+    const $cardContainer = document.querySelector(".main");
+    const $form = document.querySelector(".form");
 
     // Bind eventListeners
     $form.addEventListener('submit', (event) => {
@@ -45,15 +44,15 @@ const changeLibrary = (function() {
         }
 
         for (let i = 0; i < _myLibrary.length; i++) { // recreating all elements
-            $card = document.createElement("div");
+            const $card = document.createElement("div");
             $card.classList.toggle("card");
-            tempArr = [_myLibrary[i].name, _myLibrary[i].author, _myLibrary[i].pages, _myLibrary[i].readInfo()]; 
+            let tempArr = [_myLibrary[i].name, _myLibrary[i].author, _myLibrary[i].pages, _myLibrary[i].readInfo()]; 
             for (let j = 0; j < tempArr.length; j++) {
                 $p = document.createElement("p");
                 $p.textContent = tempArr[j];
                 $card.appendChild($p);
             }
-            $cardButton = document.createElement("button");
+            const $cardButton = document.createElement("button");
             $cardButton.textContent = "❌";
             $card.appendChild($cardButton);
             $card.id = _myLibrary[i].id;
@@ -72,9 +71,9 @@ const changeLibrary = (function() {
     function addBook(name, author, pages, readStatus) {
         name = (typeof name === "string") ? name : $bookName.value;
         author = (typeof author === "string") ? author : $authorName.value;
-        pages = (typeof pages === "number") ? pages : $pages.value;
+        pages = (typeof pages === "number") ? pages : parseInt($pages.value, 10);
         readStatus = (typeof readStatus === "boolean") ? readStatus : $readStatus.checked;
-        book = new _Book(name, author, pages, readStatus);
+        let book = new _Book(name, author, pages, readStatus);
         _myLibrary.push(book);
         _render();
     }
