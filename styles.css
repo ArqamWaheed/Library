@@ -54,6 +54,11 @@ label {
     font-size: 1.2rem;
 }
 
+#readstatus {
+    width: 50px;
+}
+
+/* ^^ It was all above module */
 
 .main {
     margin-top: 100px;
@@ -63,9 +68,7 @@ label {
     gap: 50px;
 }
 
-#readstatus {
-    width: 50px;
-}
+
 
 .card {
     text-align: center;
