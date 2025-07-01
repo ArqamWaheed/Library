@@ -26,16 +26,18 @@ const changeLibrary = (function() {
 
     // Define events
 
-    function _Book(name, author, pages, readstatus) {
-        this.name = name;
-        this.author = author;
-        this.pages = pages;
-        this.readstatus = readstatus;
-        this.id = crypto.randomUUID();
-    }
+    class _Book {
+        constructor(name, author, pages, readstatus) {
+            this.name = name,
+            this.author = author,
+            this.pages = pages,
+            this.readstatus = readstatus,
+            this.id = crypto.randomUUID()
+        }
 
-    _Book.prototype.readInfo = function() {
-        return this.readstatus ? "Read ✅" : "Read ❌"; 
+        readInfo() {
+            return this.readstatus ? "Read ✅" : "Read ❌"; 
+        }
     }
 
     function _render() {
@@ -48,7 +50,7 @@ const changeLibrary = (function() {
             $card.classList.toggle("card");
             let tempArr = [_myLibrary[i].name, _myLibrary[i].author, _myLibrary[i].pages, _myLibrary[i].readInfo()]; 
             for (let j = 0; j < tempArr.length; j++) {
-                $p = document.createElement("p");
+                let $p = document.createElement("p");
                 $p.textContent = tempArr[j];
                 $card.appendChild($p);
             }
