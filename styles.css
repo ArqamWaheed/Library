@@ -80,3 +80,21 @@ label {
     width: 30px;
     height: 30px;
 }
+
+.errorMsg {
+    margin: 30px 0;
+    display: none;
+}
+
+#title:invalid {
+    background-color: red;
+}
+
+#author:invalid {
+    background-color: red;
+}
+
+#pages:invalid {
+    background-color: red;
+}
+

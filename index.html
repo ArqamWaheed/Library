@@ -10,24 +10,27 @@
 <body>
     <div class="container">
         <div>
-            <form action="" class="form">
+            <form action="" class="form" novalidate>
                 <div class="form-group">
                     <label for="title">Name of the Book:</label>
-                    <input id="title" type="text" required>
+                    <input id="title" type="text" required minlength="4" maxlength="12" placeholder="4-12 letter characters" novalidation>
                 </div>
                 <div class="form-group">
                     <label for="author">Author of the Book:</label>
-                    <input id="author" type="text" required>
+                    <input id="author" type="text" required minlength="4" maxlength="12" placeholder="4-12 letter characters">
                 </div>
                 <div class="form-group">
                     <label for="pages">Pages in the Book:</label>
-                    <input id="pages" type="text" required>
+                    <input id="pages" type="number" required min="1" max="400" placeholder="MAX 400 pages book!">
                 </div>
                 <div class="form-group">
                     <label for="readstatus">Have You Read The Book?</label>
                     <input id="readstatus" type="checkbox">
                 </div>
                 <button id="submit" type="submit">ADD NEW BOOK</button> 
+                <h2 class="errorMsg">
+                    Error msg
+                </h2>   
             </form>
         </div>
         <div class="main">
